@@ -12,7 +12,6 @@ int PotenciaRecursiva(int base, int exponente);
 int main(){
 int numero_1,numero_2,numero_grande,numero_chiquito;
 
-
 do{
 printf("Ingrese un numero entero positivo:\n");
 scanf("%d",&numero_1);
