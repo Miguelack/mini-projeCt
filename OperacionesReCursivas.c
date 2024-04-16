@@ -7,8 +7,8 @@ int Menor(int Numero1, int Numero2);
 int SumaRecursiva(int sumando, int sumador);
 int RestaRecursiva(int restando, int restador);
 int MultiplicacionRecursiva(int multiplicador, int multiplicando);
-void BinarioRecursivo(int Decimal);
 int PotenciaRecursiva(int base, int exponente);
+int BinarioRecursivo(int Decimal);
 int main(){
 int numero_1,numero_2,numero_grande,numero_chiquito;
 
@@ -38,10 +38,8 @@ printf("\n\nEl resultado de la resta entre %d y %d es: %d",numero_chiquito,numer
 printf("\n\nEl resultado de la multiplicacion es: %d",MultiplicacionRecursiva(numero_grande,numero_chiquito));
 printf("\n\nEl resultado de la potencia entre %d y %d es: %d",numero_grande,numero_chiquito,PotenciaRecursiva(numero_grande,numero_chiquito));
 printf("\n\nEl resultado de la potencia entre %d y %d es: %d",numero_chiquito,numero_grande,PotenciaRecursiva(numero_chiquito,numero_grande));
-printf("\n\nLa representacion binaria de %d es:",numero_grande);
-BinarioRecursivo(numero_grande);
-printf("\n\nLa representacion binaria de %d es:",numero_chiquito);
-BinarioRecursivo(numero_chiquito);
+printf("\n\nLa representacion binaria de %d es:%d",numero_grande,BinarioRecursivo(numero_grande));
+printf("\n\nLa representacion binaria de %d es:%d",numero_chiquito,BinarioRecursivo(numero_chiquito));
 }
 
 int Mayor(int Numero1, int Numero2){
@@ -91,9 +89,11 @@ int PotenciaRecursiva(int base, int exponente){
     }
 }
 
-void BinarioRecursivo(int Decimal) {
-    if ((Decimal / 2) != 0) {
-        BinarioRecursivo(Decimal / 2);
+int BinarioRecursivo(int Decimal) {
+    if (Decimal==0) {
+        return 0;
+    }else{
+        return ((Decimal % 2) + 10 * BinarioRecursivo(Decimal/2));
     }
-    printf("%d", Decimal % 2);
+
 }
