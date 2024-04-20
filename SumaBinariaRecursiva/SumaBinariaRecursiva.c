@@ -1,6 +1,7 @@
-/*Desarrollar una operación recursiva que realice la suma de números binarios cuyos digitos se encuentran almacenados en un
+/*Desarrollar una operaciÃ³n recursiva que realice la suma de nÃºmeros binarios cuyos digitos se encuentran almacenados en un
 arreglo . Sabiendo que se recorren los digitos de derecha a izquierda y se suman digito a digito cuidando el acarreo.
-Dificultad extra personal: debe leerse el entero desde un archivo, debe transformarlo a binario y luego realizar la tarea.*/
+Dificultad extra personal: debe leerse el entero desde un archivo, debe transformarlo a binario y luego realizar la tarea.
+El algoritmo NO puede utilizar arreglos ni libreria string*/
 
 #include <stdio.h>
 #define archivo_binario "SumaBinariaRecursiva.txt"
@@ -47,9 +48,8 @@ int SumaBinariaRecursiva(int numeroBinario1,int numeroBinario2, int acarreoDeSum
     }else {
         int ultimoDigitoBinario1= numeroBinario1 %10;
         int ultimoDigitoBinario2= numeroBinario2 %10;
-        int sumaDeUltimosDigitosBinarios = ultimoDigitoBinario1 + ultimoDigitoBinario2 + acarreoDeSuma;
-        int retornableUltimoDigitoBinario = sumaDeUltimosDigitosBinarios % 2;
-            acarreoDeSuma = sumaDeUltimosDigitosBinarios / 2;
+        int retornableUltimoDigitoBinario= (ultimoDigitoBinario1 + ultimoDigitoBinario2 + acarreoDeSuma) % 2;
+            acarreoDeSuma= (ultimoDigitoBinario1 + ultimoDigitoBinario2 + acarreoDeSuma) / 2;
 
     return retornableUltimoDigitoBinario + 10 * SumaBinariaRecursiva(numeroBinario1/10, numeroBinario2/10, acarreoDeSuma);
 }
